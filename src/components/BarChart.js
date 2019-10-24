@@ -14,7 +14,7 @@ class BarChart extends Component {
   drawChart() {
     const data = [this.state.data1, this.state.data2];
     const h = 100;
-    const w = 100;
+    const w = 50 * data.length;
 
     const svg = d3
       .select('body')
@@ -31,6 +31,14 @@ class BarChart extends Component {
       .attr('width', 25)
       .attr('height', (d) => d * 10)
       .attr('fill', 'green');
+
+    svg.selectAll('text')
+      .data(data)
+      .enter()
+      .append('text')
+      .text((d) => d)
+      .attr('x', (d, i) => i * 30)
+      .attr('y', (d) => h - (10 * d) - 3);
   }
 
   clearChart() {
