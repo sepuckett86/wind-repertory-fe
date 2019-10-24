@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders App 1`] = `
-<h1>
-  Hello World
-</h1>
+<Fragment>
+  <h1>
+    Wind Repertory App
+  </h1>
+  <BarChart />
+</Fragment>
 `;
