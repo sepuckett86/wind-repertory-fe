@@ -3,7 +3,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // eslint-disable-next-line
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
   output: {
     filename: 'bundle.[hash].js',
     publicPath: '/'
@@ -19,7 +22,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/, 
+        loader: 'awesome-typescript-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.js?$/, 
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
