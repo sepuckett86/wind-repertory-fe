@@ -5,6 +5,5 @@ exports[`App component renders App 1`] = `
   <h1>
     Wind Repertory App
   </h1>
-  <BarChart />
 </Fragment>
 `;
