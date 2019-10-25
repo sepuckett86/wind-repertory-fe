@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 
-class BarChart extends Component {
+type BarChartState = {
+  data1: number,
+  data2: number
+}
+
+class BarChart extends Component<{}, BarChartState> {
   state = {
     data1: 1,
     data2: 2
@@ -47,25 +52,27 @@ class BarChart extends Component {
       .selectAll('svg').remove();
   }
 
-  handleClick = ({ target }) => {
-    this.setState(state => {
-      return { [target.name]: state[target.name] + parseInt(target.value) > 0 ? state[target.name] + parseInt(target.value) : 0 }; 
-    }, () => {
-      this.clearChart();
-      this.drawChart();
-    });
+  // handleClick = (event: MouseEvent) => {
+  //   this.setState(prevState => {
+  //     const name: 'data1' | 'data2' = event.target.name;
+  //     const value = event.target.value;
+  //     return { [event.target.name]: prevState[name] + parseInt(value) > 0 ? prevState[name] + parseInt(value) : 0 }; 
+  //   }, () => {
+  //     this.clearChart();
+  //     this.drawChart();
+  //   });
 
-  }
+  // }
 
   render() {
     return (
       <>
         <h2>Bar 1</h2>
-        <button name="data1" value="1" onClick={this.handleClick}>+</button>
+        {/* <button name="data1" value="1" onClick={this.handleClick}>+</button>
         <button name="data1" value="-1" onClick={this.handleClick}>-</button>
         <h2>Bar 2</h2>
         <button name="data2" value="1" onClick={this.handleClick}>+</button>
-        <button name="data2" value="-1" onClick={this.handleClick}>-</button>
+        <button name="data2" value="-1" onClick={this.handleClick}>-</button> */}
       </>
     );
   }
